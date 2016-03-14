@@ -7,7 +7,11 @@
                 <h3 align=center>Our Lipsmacking Culinary Creations</h3>
             </div>
             <div class="col-xs-12 col-sm-9 col-sm-pull-3">
-                <div class="media-left media-middle">
+                <div ng-if="!showDish">
+                    <h3>{{message}}</h3>
+                </div>
+                <div class="media" ng-if="showDish">
+                    <div class="media-left media-middle">
                         <img class="media-object img-thumbnail"
                          ng-src={{featured.image}} alt="Uthappizza">
                     </div>
@@ -17,6 +21,8 @@
                          <span class="badge">{{featured.price | currency}}</span></h2>
                             <p>{{featured.description}}</p>
                     </div>
+                </div>
+
             </div>
         </div>
 
@@ -27,16 +33,22 @@
                 <h3 align=center>This Month's Promotions</h3>
             </div>
             <div class="col-xs-12 col-sm-9">
-                <div class="media-body">
-                    <h2 class="media-heading">{{promotion.name}}
-                    <span class="label label-danger">{{promotion.label}}</span>
-                    <span class="badge">{{promotion.price | currency}}</span></h2>
-                    <p>{{promotion.description}}</p>
+                <div ng-if="!showPromotion">
+                    <h3>{{message_promotion}}</h3>
                 </div>
-                 <div class="media-right media-middle">
+                <div class="media" ng-if="showPromotion">
+                    <div class="media-body">
+                        <h2 class="media-heading">{{promotion.name}}
+                        <span class="label label-danger">{{promotion.label}}</span>
+                        <span class="badge">{{promotion.price | currency}}</span></h2>
+                        <p>{{promotion.description}}</p>
+                    </div>
+                    <div class="media-right media-middle">
                         <img class="media-object img-thumbnail"
                          ng-src={{promotion.image}} alt="Uthappizza">
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -46,7 +58,11 @@
                 <h3 align=center>Meet our Culinary Specialists</h3>
             </div>
             <div class="col-xs-12 col-sm-9 col-sm-pull-3">
-                <div class="media">
+
+                <div ng-if="!showChief">
+                    <h3>{{message_chief}}</h3>
+                </div>
+                <div class="media" ng-if="showChief">
                     <div class="media-left media-middle">
                         <a href="#">
                         <img class="media-object img-thumbnail"
